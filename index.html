@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using io.js <script>document.write(process.version)</script>
+    and Electron <script>document.write(process.versions['electron'])</script>.
+
+    <script>
+      var fs = require('fs');
+      fs.readFile('C:\\Windows\\System32\\drivers\\etc\\hosts', function (err, data) {
+        if (err) throw err;
+        document.write('<pre>' + data + '</pre>');
+      });
+    </script>
+  </body>
+</html>
