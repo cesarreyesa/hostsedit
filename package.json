@@ -1,5 +1,8 @@
 {
-  "name"    : "hostedit",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+  "name": "hostedit",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-rebuild": "^0.2.5"
+  }
 }

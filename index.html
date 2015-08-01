@@ -6,7 +6,11 @@
   </head>
   <body>
     <div ng-controller="EditController as edit">
-      <textarea style="width:100%;height:100%;">{{edit.fileText}}</textarea>
+      <ul>
+        <li ng-repeat="line in edit.lines">
+          -{{line}}-
+        </li>
+      </ul>
     </div>
   </body>
 </html>
