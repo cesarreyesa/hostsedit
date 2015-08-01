@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app="editApp">
   <head>
-    <title>Hello World!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="edit.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using io.js <script>document.write(process.version)</script>
-    and Electron <script>document.write(process.versions['electron'])</script>.
-
-    <script>
-      var fs = require('fs');
-      fs.readFile('C:\\Windows\\System32\\drivers\\etc\\hosts', function (err, data) {
-        if (err) throw err;
-        document.write('<pre>' + data + '</pre>');
-      });
-    </script>
+    <div ng-controller="EditController as edit">
+      <textarea style="width:100%;height:100%;">{{edit.fileText}}</textarea>
+    </div>
   </body>
 </html>
