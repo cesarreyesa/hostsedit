@@ -1,169 +1,50 @@
 <!doctype html>
 <html ng-app="editApp">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hosts file editor</title>
-
-    <!-- Vendor CSS -->
-    <link href="vendors/socicon/socicon.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
-
-
-    <!-- CSS -->
-    <link href="css/app.min.1.css" rel="stylesheet" id="app-level">
-    <link href="css/app.min.2.css" rel="stylesheet">
-    <link href="css/demo.css" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="edit.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   </head>
   <body>
-      <!-- <input type="text" placeholder="IP"/>
-      <input type="text" placeholder="Host"/>
-      <button>Agregar</button> -->
-
     <div class="container" ng-controller="EditController as edit">
-        <div class="block-header">
-            <h2>/etc/hosts</h2>
-        </div>
-
-        <div class="card">
-            <div class="listview lv-bordered lv-lg">
-                <div class="lv-header-alt">
-
-                    <ul class="lv-actions actions">
-                        <li>
-                            <a href="">
-                                <i class="md md-access-time"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" data-toggle="dropdown" aria-expanded="true">
-                                <i class="md md-sort"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="">Last Modified</a>
-                                </li>
-                                <li>
-                                    <a href="">Name</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="md md-info"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" data-toggle="dropdown" aria-expanded="true">
-                                <i class="md md-more-vert"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="">Refresh</a>
-                                </li>
-                                <li>
-                                    <a href="">Listview Settings</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="lv-body" ng-repeat="line in edit.lines">
-                    <div class="lv-item media">
-                        <div class="checkbox pull-left">
-                            <label>
-                                <input type="checkbox" value="">
-                                <i class="input-helper"></i>
-                            </label>
-                        </div>
-                        <div class="media-body">
-                            <div class="lv-title">{{line[0]}} {{line[1]}}</div>
-
-                            <div class="lv-actions actions dropdown">
-                                <a href="" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="md md-more-vert"></i>
-                                </a>
-
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href="">Edit</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Delete</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <h1>Hostfile editor</h1>
+      <hr/>
+      <div class="pull-right">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Nuevo registro</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="IP">
             </div>
-        </div>
-
+            <div class="input-group">
+              <input type="text" class="form-control" id="exampleInputAmount2" placeholder="Name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+      <div class="clearfix"></div>
+      <hr/>
+      <table class="table table-striped">
+        <thead>
+          <th>IP</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="line in edit.lines">
+            <td>{{line[0]}}</td>
+            <td>{{line[1]}}</td>
+            <td>
+              <button class="btn btn-xs btn-default">Editar</button>
+              <button class="btn btn-xs btn-default">Comentar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Angular -->
-<script src="vendors/angular/angular.min.js"></script>
-<script src="vendors/angular/angular-route.min.js"></script>
-<script src="vendors/angular/angular-resource.min.js"></script>
-<script src="vendors/angular/angular-animate.min.js"></script>
-
-<!-- Angular Modules -->
-<script src="vendors/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="vendors/bower_components/angular-loading-bar/src/loading-bar.js"></script>
-<script src="vendors/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-
-<!-- Common Vendors -->
-<script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-<script src="vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
-<script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
-<script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-
-<!-- Placeholder for IE9 -->
-<!--[if IE 9 ]>
-    <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
-<![endif]-->
-
-<!-- Using below vendors in order to avoid misloading on resolve -->
-<script src="vendors/bower_components/flot/jquery.flot.js"></script>
-<script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
-<script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
-<script src="vendors/bower_components/moment/min/moment.min.js"></script>
-<script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>,
-<script src="vendors/bower_components/flot/jquery.flot.pie.js"></script>,
-<script src="vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-
-<!-- App level -->
-<script src="js/app.js"></script>
-<script src="js/config.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/services.js"></script>
-<script src="js/templates.js"></script>
-
-
-<!-- Template Modules -->
-<script src="js/modules/template.js"></script>
-<script src="js/modules/ui.js"></script>
-<script src="js/modules/charts/flot.js"></script>
-<script src="js/modules/charts/other-charts.js"></script>
-<script src="js/modules/form.js"></script>
-<script src="js/modules/table.js"></script>
-<script src="js/modules/media.js"></script>
-<script src="js/modules/components.js"></script>
-<script src="js/modules/calendar.js"></script>
-<script src="js/modules/demo.js"></script>
-<script src="edit.js"></script>
-
   </body>
 </html>
