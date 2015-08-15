@@ -13,14 +13,14 @@
       <h1>Hostfile editor</h1>
       <hr/>
       <div class="pull-right">
-        <form class="form-inline">
+        <form class="form-inline" ng-submit="edit.addRecord()">
           <div class="form-group">
             <label class="sr-only" for="exampleInputAmount">Nuevo registro</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="exampleInputAmount" placeholder="IP">
+              <input type="text" class="form-control" placeholder="IP" ng-model="edit.entry.ip">
             </div>
             <div class="input-group">
-              <input type="text" class="form-control" id="exampleInputAmount2" placeholder="Name">
+              <input type="text" class="form-control" placeholder="Name" ng-model="edit.entry.host">
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Agregar</button>
@@ -36,8 +36,8 @@
         </thead>
         <tbody>
           <tr ng-repeat="line in edit.lines">
-            <td>{{line[0]}}</td>
-            <td>{{line[1]}}</td>
+            <td>{{line.ip}}</td>
+            <td>{{line.host}}</td>
             <td>
               <button class="btn btn-xs btn-default">Editar</button>
               <button class="btn btn-xs btn-default">Comentar</button>
