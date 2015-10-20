@@ -1,5 +1,5 @@
 # hostsedit
-Hosts file editor based in Electron.
+Hosts file editor build with Electron.
 
 <img src="screenshot.png" width=700 alt="Screenshot">
 
